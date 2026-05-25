@@ -1,1 +1,639 @@
-MIRIAN invest
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>МИРИАН — инвестиции в недвижимость</title>
+    <meta name="description" content="Инвестиционная недвижимость в Алтае, Архызе, Красной Поляне, Крыму. Прозрачный рейтинг объектов. Apple-подобный дизайн.">
+    <!-- SF Pro / Inter шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #ffffff;
+            color: #1d1d1f;
+            scroll-behavior: smooth;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header — как у Apple */
+        header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        .logo .mirian {
+            background: linear-gradient(135deg, #1d1d1f, #3a6b5e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo .slogan {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #6e6e73;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #3a6b5e;
+        }
+        .btn-outline {
+            border: 1px solid #d2d2d7;
+            background: transparent;
+            padding: 6px 18px;
+            border-radius: 980px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #1d1d1f;
+        }
+        .btn-outline:hover {
+            background: #f5f5f7;
+            border-color: #a1a1a6;
+        }
+
+        /* Hero — минимализм */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: #fff;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            background: linear-gradient(135deg, #1d1d1f, #4e7b6c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #6e6e73;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 40px;
+        }
+        .stat span {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #3a6b5e;
+            display: block;
+        }
+
+        /* Секции курортов — карточки в стиле Apple */
+        .resort-section {
+            padding: 80px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .resort-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .resort-name {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.002em;
+            margin-bottom: 8px;
+        }
+        .resort-tagline {
+            font-size: 1rem;
+            color: #6e6e73;
+        }
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        .property-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            border-color: #e0e0e0;
+        }
+        .card-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 24px;
+        }
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3a6b5e;
+            margin: 12px 0 8px;
+        }
+        .btn-card {
+            background: transparent;
+            border: 1px solid #d2d2d7;
+            border-radius: 980px;
+            padding: 8px 16px;
+            width: 100%;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 12px;
+        }
+        .btn-card:hover {
+            background: #f5f5f7;
+            border-color: #a1a1a6;
+        }
+        .info-badge {
+            background: #f9f9fb;
+            border-radius: 24px;
+            padding: 24px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: #6e6e73;
+        }
+
+        /* Полная таблица рейтинга */
+        .ranking-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+        .ranking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .add-project-btn {
+            background: #1d1d1f;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 980px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .rank-table {
+            overflow-x: auto;
+            border-radius: 24px;
+            border: 1px solid #e9e9ed;
+            background: white;
+        }
+        .rank-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .rank-table th {
+            text-align: left;
+            padding: 16px 12px;
+            background: #f9f9fb;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .rank-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .badge-location {
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .delete-btn:hover {
+            color: #c00;
+        }
+        .progress-bar-bg {
+            background: #e9e9ed;
+            border-radius: 20px;
+            height: 6px;
+            width: 100px;
+        }
+        .progress-fill {
+            background: #3a6b5e;
+            height: 6px;
+            border-radius: 20px;
+        }
+
+        /* Плавающий виджет Топ-рейтинг (Apple-style) */
+        .floating-ranking {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 280px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            border: 0.5px solid rgba(0,0,0,0.05);
+            z-index: 99;
+            transition: 0.2s;
+        }
+        .floating-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 18px;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .floating-header i {
+            color: #8e8e93;
+        }
+        .floating-list {
+            max-height: 320px;
+            overflow-y: auto;
+            padding: 8px 0;
+        }
+        .floating-item {
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            border-bottom: 1px solid #f5f5f7;
+        }
+        .floating-item .rank {
+            font-weight: 700;
+            color: #3a6b5e;
+            width: 28px;
+        }
+        .floating-item .name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 8px;
+        }
+        .floating-item .rating {
+            font-weight: 600;
+        }
+        .view-all-link {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #3a6b5e;
+            text-decoration: none;
+            border-top: 1px solid #f0f0f0;
+        }
+        .floating-ranking.collapsed .floating-list,
+        .floating-ranking.collapsed .view-all-link {
+            display: none;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+        }
+        .modal-content {
+            background: white;
+            max-width: 480px;
+            width: 90%;
+            padding: 32px;
+            border-radius: 32px;
+        }
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 16px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+        }
+        .form-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 16px;
+        }
+        .cta-section {
+            background: #f9f9fb;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #8e8e93;
+            font-size: 0.8rem;
+            border-top: 1px solid #f0f0f0;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .floating-ranking { width: 260px; right: 16px; bottom: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="logo">
+                <span class="mirian">МИРИАН</span>
+                <span class="slogan">инвестируйте в недвижимость!</span>
+            </div>
+            <div class="nav-links">
+                <a href="#altai">Алтай</a>
+                <a href="#arkhyz">Архыз</a>
+                <a href="#krasnaya">Красная Поляна</a>
+                <a href="#crimea">Крым</a>
+                <a href="#rating-full">Топ-рейтинг</a>
+                <a href="#contact" class="btn-outline">Консультация</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="hero">
+        <div class="container">
+            <h1>Инвестируйте в курортную недвижимость</h1>
+            <p>Доходность до 30% годовых. Гостевые дома, апартаменты, шале. Полное сопровождение.</p>
+            <div class="hero-stats">
+                <div class="stat"><span>+35%</span> рост цен в Крыму</div>
+                <div class="stat"><span>до 30%</span> доходность</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- КУРОРТЫ (упрощённые, но визуально свежие) -->
+    <section id="altai" class="resort-section">
+        <div class="container">
+            <div class="resort-header"><div class="resort-name">Алтай</div><div class="resort-tagline">Природа и высокая заполняемость</div></div>
+            <div class="property-grid">
+                <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1544979590-37e9b47eb705?w=600&h=400&fit=crop" alt="Алтай"></div><div class="card-content"><div class="card-title">Гостевой дом «Бирюзовая Катунь»</div><div class="price">15,2 млн ₽</div><button class="btn-card" onclick="alert('МИРИАН: заявка принята')">Оставить заявку</button></div></div>
+                <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1509316975850-ff9c5e7a5cf2?w=600&h=400&fit=crop" alt="Апартаменты"></div><div class="card-content"><div class="card-title">Апарт-отель «Алтай Парк»</div><div class="price">от 14,7 млн ₽</div><button class="btn-card" onclick="alert('Узнайте доходность')">Расчёт</button></div></div>
+                <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1605276373954-0c4a0dac5e12?w=600&h=400&fit=crop" alt="База"></div><div class="card-content"><div class="card-title">База «Телецкое озеро»</div><div class="price">42,5 млн ₽</div><button class="btn-card" onclick="alert('Коммерческое предложение')">Подробнее</button></div></div>
+            </div>
+            <div class="info-badge"><span><i class="fas fa-chart-line"></i> Доходность посуточно до 30%</span><span><i class="fas fa-gavel"></i> Легализация гостевых домов с 2025</span></div>
+        </div>
+    </section>
+
+    <section id="arkhyz" class="resort-section">
+        <div class="container"><div class="resort-header"><div class="resort-name">Архыз</div><div class="resort-tagline">Горы и стабильный поток</div></div>
+        <div class="property-grid"><div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1594644641136-6f2c3e52f8f3?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">Апарт-отель «Лунная Поляна»</div><div class="price">12,9 млн ₽</div><button class="btn-card" onclick="alert('Ставка 12%')">Детали</button></div></div>
+        <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1623428187968-5b5c36ea9b32?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">Номер «Домбай-Архыз»</div><div class="price">11,2 млн ₽</div><button class="btn-card" onclick="alert('Готовый бизнес')">Заявка</button></div></div>
+        <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">Коммерческое помещение</div><div class="price">24,8 млн ₽</div><button class="btn-card" onclick="alert('ROI 15%')">Узнать</button></div></div></div>
+        <div class="info-badge"><span>Средняя загрузка 85%</span><span>Рост цены кв.м +62% за 2 года</span></div>
+    </div></section>
+
+    <section id="krasnaya" class="resort-section"><div class="container"><div class="resort-header"><div class="resort-name">Красная Поляна</div><div class="resort-tagline">Премиум-сегмент</div></div>
+    <div class="property-grid"><div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1584865433821-7fcf19a6e1c8?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">«Горная резиденция»</div><div class="price">33,5 млн ₽</div><button class="btn-card" onclick="alert('Доходность 9-11%')">Расчёт</button></div></div>
+    <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1622045414095-03d23e1e5c7c?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">Шале «1032»</div><div class="price">от 720 млн ₽</div><button class="btn-card" onclick="alert('VIP отдел')">Эксклюзив</button></div></div>
+    <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1598266663439-2056e6900339?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">Студия в Эсто-Садке</div><div class="price">18,9 млн ₽</div><button class="btn-card" onclick="alert('Арендный доход 1,2 млн/год')">Ипотека</button></div></div></div></div></section>
+
+    <section id="crimea" class="resort-section"><div class="container"><div class="resort-header"><div class="resort-name">Крым</div><div class="resort-tagline">Апартаментный бум</div></div>
+    <div class="property-grid"><div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1570730325930-cddaa73fa01f?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">«Массандра View»</div><div class="price">11,4 млн ₽</div><button class="btn-card" onclick="alert('Доходность 16-18%')">Подробнее</button></div></div>
+    <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1590742675935-f595baf3572c?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">Гостевой дом «Солнечный Берег»</div><div class="price">28,7 млн ₽</div><button class="btn-card" onclick="alert('+25% к стоимости')">Аналитика</button></div></div>
+    <div class="property-card"><div class="card-img"><img src="https://images.unsplash.com/photo-1563876362938-1ab2f0ab6e82?w=600&h=400&fit=crop"></div><div class="card-content"><div class="card-title">Новостройка в Алуште</div><div class="price">от 2,5 млн ₽</div><button class="btn-card" onclick="alert('Вход от 2,5 млн')">Выбрать</button></div></div></div></div></section>
+
+    <!-- ПОЛНАЯ ТАБЛИЦА РЕЙТИНГА -->
+    <section id="rating-full" class="ranking-section">
+        <div class="container">
+            <div class="ranking-header">
+                <h2 style="font-weight: 600;">🏆 Топ-рейтинг инвестиционных проектов</h2>
+                <button class="add-project-btn" id="openModalBtn"><i class="fas fa-plus"></i> Добавить проект</button>
+            </div>
+            <div class="rank-table" id="rankTableContainer">
+                <table id="ratingTable">
+                    <thead><tr><th>#</th><th>Проект / Локация</th><th>Цена входа (₽)</th><th>Окупаемость (лет)</th><th>Загрузка</th><th>⭐ Рейтинг</th><th></th></tr></thead>
+                    <tbody id="ratingTableBody"></tbody>
+                </table>
+            </div>
+            <div class="info-badge" style="margin-top: 24px;"><div>Рейтинг учитывает цену, срок окупаемости и сезонную загрузку. Добавляйте свои объекты.</div></div>
+        </div>
+    </section>
+
+    <div class="cta-section" id="contact"><div class="container"><h3 style="font-weight: 500; margin-bottom: 16px;">Начните зарабатывать с МИРИАН</h3><button class="add-project-btn" style="background:#3a6b5e;" onclick="alert('Свяжемся для консультации')">Получить консультацию</button></div></div>
+    <footer class="footer"><div class="container">© 2026 МИРИАН — инвестируйте в недвижимость. Все права защищены.</div></footer>
+</main>
+
+<!-- Плавающий виджет "Топ рейтинг" -->
+<div id="floatingWidget" class="floating-ranking">
+    <div class="floating-header" id="toggleWidget">
+        <span><i class="fas fa-chart-simple"></i> Топ рейтинг</span>
+        <i class="fas fa-chevron-up" id="chevronIcon"></i>
+    </div>
+    <div class="floating-list" id="floatingList">
+        <!-- динамически -->
+    </div>
+    <a href="#rating-full" class="view-all-link">Все проекты →</a>
+</div>
+
+<!-- Модальное окно добавления -->
+<div id="addProjectModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn" style="float:right;cursor:pointer;">&times;</span><h3>Новый проект</h3>
+    <label>Название</label><input type="text" id="projName" placeholder="Например: Эко-отель «Алтай»">
+    <label>Локация</label><select id="projLocation"><option>Алтай</option><option>Архыз</option><option>Красная Поляна</option><option>Крым</option></select>
+    <label>Цена (₽)</label><input type="number" id="projPrice" placeholder="15000000">
+    <label>Окупаемость (лет)</label><input type="number" step="0.1" id="projPayback" placeholder="6">
+    <label>Загрузка (%)</label><input type="number" step="1" id="projOccupancy" placeholder="80">
+    <div class="form-buttons"><button class="btn-outline" id="cancelModalBtn">Отмена</button><button class="add-project-btn" id="saveProjectBtn">Сохранить</button></div>
+</div></div>
+
+<script>
+    // ---- Управление проектами (совместимо с прошлым, но улучшено) ----
+    let projects = [];
+
+    function loadProjects() {
+        const stored = localStorage.getItem('mirian_rating_projects_v2');
+        if(stored) {
+            projects = JSON.parse(stored);
+        } else {
+            projects = [
+                { name: "Гостевой дом «Бирюзовая Катунь»", location: "Алтай", price: 15200000, paybackYears: 5.2, occupancy: 85 },
+                { name: "Апарт-отель «Алтай Парк»", location: "Алтай", price: 14700000, paybackYears: 4.8, occupancy: 88 },
+                { name: "Апарт-отель «Лунная Поляна»", location: "Архыз", price: 12900000, paybackYears: 6.0, occupancy: 87 },
+                { name: "Гостиничный номер «Домбай-Архыз»", location: "Архыз", price: 11200000, paybackYears: 5.5, occupancy: 84 },
+                { name: "Апартаменты «Горная резиденция»", location: "Красная Поляна", price: 33500000, paybackYears: 8.2, occupancy: 78 },
+                { name: "Шале «1032»", location: "Красная Поляна", price: 720000000, paybackYears: 12, occupancy: 70 },
+                { name: "Апартаменты «Массандра View»", location: "Крым", price: 11400000, paybackYears: 5.0, occupancy: 90 },
+                { name: "Гостевой дом «Солнечный Берег»", location: "Крым", price: 28700000, paybackYears: 6.8, occupancy: 82 }
+            ];
+        }
+        renderFullTable();
+        updateFloatingWidget();
+    }
+
+    function saveProjects() {
+        localStorage.setItem('mirian_rating_projects_v2', JSON.stringify(projects));
+    }
+
+    function computeRating(project, allProjects) {
+        let prices = allProjects.map(p => p.price);
+        let paybacks = allProjects.map(p => p.paybackYears);
+        let occupancies = allProjects.map(p => p.occupancy);
+        let minPrice = Math.min(...prices), maxPrice = Math.max(...prices);
+        let minPay = Math.min(...paybacks), maxPay = Math.max(...paybacks);
+        let minOcc = Math.min(...occupancies), maxOcc = Math.max(...occupancies);
+        const normInv = (val, minV, maxV) => maxV === minV ? 1 : 1 - (val - minV) / (maxV - minV);
+        const normDir = (val, minV, maxV) => maxV === minV ? 0.5 : (val - minV) / (maxV - minV);
+        let priceScore = normInv(project.price, minPrice, maxPrice);
+        let payScore = normInv(project.paybackYears, minPay, maxPay);
+        let occScore = normDir(project.occupancy, minOcc, maxOcc);
+        let total = priceScore * 0.3 + payScore * 0.4 + occScore * 0.3;
+        return Math.round(total * 100);
+    }
+
+    function renderFullTable() {
+        const tbody = document.getElementById('ratingTableBody');
+        if(!tbody) return;
+        let rated = projects.map(p => ({ ...p, rating: computeRating(p, projects) }));
+        rated.sort((a,b) => b.rating - a.rating);
+        tbody.innerHTML = '';
+        rated.forEach((item, idx) => {
+            let row = tbody.insertRow();
+            row.insertCell(0).innerText = idx+1;
+            row.insertCell(1).innerHTML = `<strong>${escapeHtml(item.name)}</strong><br><span class="badge-location">${escapeHtml(item.location)}</span>`;
+            row.insertCell(2).innerText = new Intl.NumberFormat('ru-RU').format(item.price) + ' ₽';
+            row.insertCell(3).innerText = item.paybackYears + ' лет';
+            row.insertCell(4).innerHTML = `<div>${item.occupancy}%</div><div class="progress-bar-bg"><div class="progress-fill" style="width: ${item.occupancy}%;"></div></div>`;
+            row.insertCell(5).innerHTML = `<span style="font-weight:600;">⭐ ${item.rating}</span>/100`;
+            let delBtn = document.createElement('button');
+            delBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+            delBtn.className = 'delete-btn';
+            delBtn.onclick = () => { if(confirm(`Удалить ${item.name}?`)) { projects = projects.filter(p => p.name !== item.name || p.price !== item.price); saveProjects(); loadProjects(); } };
+            row.insertCell(6).appendChild(delBtn);
+        });
+        if(projects.length===0) tbody.innerHTML = '<tr><td colspan="7">Нет проектов, добавьте первый.</td></tr>';
+    }
+
+    function updateFloatingWidget() {
+        let listDiv = document.getElementById('floatingList');
+        if(!listDiv) return;
+        let rated = projects.map(p => ({ ...p, rating: computeRating(p, projects) }));
+        rated.sort((a,b) => b.rating - a.rating);
+        let top3 = rated.slice(0,3);
+        listDiv.innerHTML = '';
+        top3.forEach((item, i) => {
+            let div = document.createElement('div');
+            div.className = 'floating-item';
+            div.innerHTML = `<span class="rank">${i+1}</span><span class="name" title="${escapeHtml(item.name)}">${escapeHtml(item.name.length>20?item.name.slice(0,18)+'…':item.name)}</span><span class="rating">⭐${item.rating}</span>`;
+            listDiv.appendChild(div);
+        });
+        if(projects.length===0) listDiv.innerHTML = '<div class="floating-item">Нет проектов</div>';
+    }
+
+    function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+
+    // добавление проекта
+    function addProject() {
+        let name = document.getElementById('projName').value.trim();
+        let location = document.getElementById('projLocation').value;
+        let price = parseFloat(document.getElementById('projPrice').value);
+        let payback = parseFloat(document.getElementById('projPayback').value);
+        let occupancy = parseFloat(document.getElementById('projOccupancy').value);
+        if(!name || isNaN(price) || isNaN(payback) || isNaN(occupancy) || price<=0 || payback<=0 || occupancy<0 || occupancy>100) { alert('Заполните корректно'); return false; }
+        projects.push({ name, location, price, paybackYears: payback, occupancy });
+        saveProjects();
+        loadProjects();
+        return true;
+    }
+
+    // модальное окно
+    const modal = document.getElementById('addProjectModal');
+    document.getElementById('openModalBtn').onclick = () => modal.style.display = 'flex';
+    document.getElementById('closeModalBtn').onclick = () => modal.style.display = 'none';
+    document.getElementById('cancelModalBtn').onclick = () => modal.style.display = 'none';
+    document.getElementById('saveProjectBtn').onclick = () => { if(addProject()) { modal.style.display = 'none'; document.getElementById('projName').value = ''; document.getElementById('projPrice').value = ''; document.getElementById('projPayback').value = ''; document.getElementById('projOccupancy').value = ''; } };
+    window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
+
+    // сворачивание виджета
+    let widget = document.getElementById('floatingWidget');
+    let chevron = document.getElementById('chevronIcon');
+    document.getElementById('toggleWidget').addEventListener('click', () => {
+        widget.classList.toggle('collapsed');
+        chevron.classList.toggle('fa-chevron-up');
+        chevron.classList.toggle('fa-chevron-down');
+    });
+    loadProjects();
+    // плавная навигация
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e){ let href=this.getAttribute('href'); if(href && href!='#'){ let target=document.querySelector(href); if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); } } }));
+</script>
+</body>
+</html>
